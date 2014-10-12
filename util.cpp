@@ -1,0 +1,34 @@
+/*
+ * Copyright 2010,2011,2012,2013 Robert Huitema robert@42.co.nz
+ *
+ * This file is part of FreeBoard. (http://www.42.co.nz/freeboard)
+ *
+ *  FreeBoard is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+
+ *  FreeBoard is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+
+ *  You should have received a copy of the GNU General Public License
+ *  along with FreeBoard.  If not, see <http://www.gnu.org/licenses/>.
+ */
+/* Utility routines */
+#include "FreeBoardPLC.h"
+//uint8_t * heapptr, *stackptr;
+
+
+//free mem
+
+
+/*void check_mem() {
+  stackptr = (uint8_t *)malloc(4);          // use stackptr temporarily
+  heapptr = stackptr;                     // save value of heap pointer
+  free(stackptr);      // free up the memory again (sets stackptr to 0)
+  stackptr =  (uint8_t *)(SP);           // save value of stack pointer//
+}*/
+
+
