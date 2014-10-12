@@ -344,7 +344,7 @@ void loop() {
 			nmea.printWindNmea();
 			//fire any alarms
 			alarm.checkAlarms();
-			//model.writeSimple(Serial);
+			model.writeSimple(&Serial);
 		}
 		if (interval % 10 == 0) {
 			//Serial.print("freeMemory()=");
@@ -456,7 +456,7 @@ void process(char * s, char parser) {
 				save = true;
 			}else if (strcmp(key, CONFIG) == 0) {
 				//Serial.println("Sending config..");
-				model.writeConfig(Serial);
+				model.writeConfig(&Serial);
 			}
 			//gps,serial,seatalk
 			else if (strcmp(key, GPS_MODEL) == 0) {

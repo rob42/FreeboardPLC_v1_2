@@ -135,106 +135,106 @@ FreeBoardModel::FreeBoardModel() {
 	version = EEPROM_VER;
 }
 
-template<class T> int writeObject(HardwareSerial ser, T& value, char name) {
+template<class T> int writeObject(HardwareSerial* ser, T& value, char name) {
 	unsigned char* p = (unsigned char*) (void*) &value;
 	unsigned int i;
 	char checksum = '0';
-	ser.write('@');
-	ser.write(name);
+	ser->write('@');
+	ser->write(name);
 	for (i = 0; i < sizeof(value); i++) {
-		ser.write(*p++);
+		ser->write(*p++);
 		checksum = checksum ^ *p;
 	}
-	ser.write(checksum);
-	ser.write('\n');
+	ser->write(checksum);
+	ser->write('\n');
 	return i;
 
 }
 
-int FreeBoardModel::writeSimple(HardwareSerial ser) {
+int FreeBoardModel::writeSimple(HardwareSerial* ser) {
 	//ArduIMU output format
 	//!!VER:1.9,RLL:-0.52,PCH:0.06,YAW:80.24,IMUH:253,MGX:44,MGY:-254,MGZ:-257,MGH:80.11,LAT:-412937350,LON:1732472000,ALT:14,COG:116,SOG:0,FIX:1,SAT:5,TOW:22504700,
 
-	ser.print(F("!!VER:1.9,"));
-	ser.print(F("UID:MEGA,APX:"));
-	ser.print(autopilotState.autopilotOn);
-	ser.print(F(",APS:"));
-	ser.print(autopilotState.autopilotReference);
+	ser->print(F("!!VER:1.9,"));
+	ser->print(F("UID:MEGA,APX:"));
+	ser->print(autopilotState.autopilotOn);
+	ser->print(F(",APS:"));
+	ser->print(autopilotState.autopilotReference);
 	//if autopilot on, send autopilot data
 	if (autopilotState.autopilotOn) {
-		ser.print(F(",APT:"));
-		ser.print(getAutopilotTargetHeading());
-		ser.print(F(",APC:"));
-		ser.print(getAutopilotCurrentHeading());
-		ser.print(F(",APR:"));
-		ser.print(autopilotState.autopilotRudderCommand - 33.0); // 0-66 in model
+		ser->print(F(",APT:"));
+		ser->print(getAutopilotTargetHeading());
+		ser->print(F(",APC:"));
+		ser->print(getAutopilotCurrentHeading());
+		ser->print(F(",APR:"));
+		ser->print(autopilotState.autopilotRudderCommand - 33.0); // 0-66 in model
 	}
 	//if anchor alarm on, send data
-	ser.print(F(",AAX:"));
-	ser.print(config.anchorAlarmOn);
-	ser.print(F(",AAR:"));
-	ser.print(config.anchorRadius);
+	ser->print(F(",AAX:"));
+	ser->print(config.anchorAlarmOn);
+	ser->print(F(",AAR:"));
+	ser->print(config.anchorRadius);
 	if (config.anchorAlarmOn) {
-		ser.print(F(",AAN:"));
-		ser.print(config.anchorLat);
-		ser.print(F(",AAE:"));
-		ser.print(config.anchorLon);
-		ser.print(F(",AAD:"));
-		ser.print(getAnchorDistance());
+		ser->print(F(",AAN:"));
+		ser->print(config.anchorLat);
+		ser->print(F(",AAE:"));
+		ser->print(config.anchorLon);
+		ser->print(F(",AAD:"));
+		ser->print(getAnchorDistance());
 	}
 	//if wind alarm on, send data
-	ser.print(F(",WSX:"));
-	ser.print(config.windAlarmOn);
-	ser.print(F(",WSK:"));
-	ser.print(config.windAlarmSpeed);
+	ser->print(F(",WSX:"));
+	ser->print(config.windAlarmOn);
+	ser->print(F(",WSK:"));
+	ser->print(config.windAlarmSpeed);
 
-	ser.println(F(","));
+	ser->println(F(","));
 	return 0;
 }
 /*
  * Write out the config to serial
  */
-int FreeBoardModel::writeConfig(HardwareSerial ser) {
+int FreeBoardModel::writeConfig(HardwareSerial* ser) {
 	//ArduIMU output format
 	//!!VER:1.9,RLL:-0.52,PCH:0.06,YAW:80.24,IMUH:253,MGX:44,MGY:-254,MGZ:-257,MGH:80.11,LAT:-412937350,LON:1732472000,ALT:14,COG:116,SOG:0,FIX:1,SAT:5,TOW:22504700,
 
-	ser.print(F("!!VER:1.9,"));
-	ser.print(F("UID:MEGA,APX:"));
+	ser->print(F("!!VER:1.9,"));
+	ser->print(F("UID:MEGA,APX:"));
 
-	ser.print(F(",WZJ:"));
-	ser.print(getWindZeroOffset());
-	ser.print(F(",GPS:"));
-	ser.print(getGpsModel());
-	ser.print(F(",SB0:"));
-	ser.print(getSerialBaud());
-	ser.print(F(",SB1:"));
-	ser.print(getSerialBaud1());
-	ser.print(F(",SB2:"));
-	ser.print(getSerialBaud2());
-	ser.print(F(",SB3:"));
-	ser.print(getSerialBaud3());
-	ser.print(F(",STK:"));
-	ser.print(getSeaTalk());
+	ser->print(F(",WZJ:"));
+	ser->print(getWindZeroOffset());
+	ser->print(F(",GPS:"));
+	ser->print(getGpsModel());
+	ser->print(F(",SB0:"));
+	ser->print(getSerialBaud());
+	ser->print(F(",SB1:"));
+	ser->print(getSerialBaud1());
+	ser->print(F(",SB2:"));
+	ser->print(getSerialBaud2());
+	ser->print(F(",SB3:"));
+	ser->print(getSerialBaud3());
+	ser->print(F(",STK:"));
+	ser->print(getSeaTalk());
 
-	ser.print(F(",LU1:"));
-	ser.print(getLvl1UpperLimit());
-	ser.print(F(",LL1:"));
-	ser.print(getLvl1LowerLimit());
+	ser->print(F(",LU1:"));
+	ser->print(getLvl1UpperLimit());
+	ser->print(F(",LL1:"));
+	ser->print(getLvl1LowerLimit());
 
-	ser.print(F(",LU2:"));
-	ser.print(getLvl2UpperLimit());
-	ser.print(F(",LL2:"));
-	ser.print(getLvl2LowerLimit());
+	ser->print(F(",LU2:"));
+	ser->print(getLvl2UpperLimit());
+	ser->print(F(",LL2:"));
+	ser->print(getLvl2LowerLimit());
 
-	ser.print(F(",LU3:"));
-	ser.print(getLvl3UpperLimit());
-	ser.print(F(",LL3:"));
-	ser.print(getLvl3LowerLimit());
+	ser->print(F(",LU3:"));
+	ser->print(getLvl3UpperLimit());
+	ser->print(F(",LL3:"));
+	ser->print(getLvl3LowerLimit());
 
-	ser.println(F(","));
+	ser->println(F(","));
 	return 0;
 }
-int FreeBoardModel::sendData(HardwareSerial ser, char name) {
+int FreeBoardModel::sendData(HardwareSerial* ser, char name) {
 	if (CONFIG_T == name) {
 		return writeObject(ser, config, name);
 	}
@@ -247,16 +247,16 @@ int FreeBoardModel::sendData(HardwareSerial ser, char name) {
 	return -1;
 }
 
-template<class T> int readObject(HardwareSerial ser, T& value, char name) {
+template<class T> int readObject(HardwareSerial* ser, T& value, char name) {
 	unsigned char* p = (unsigned char*) (void*) &value;
 	unsigned int i;
 	char checksum = '0';
 	for (i = 0; i < sizeof(value); i++) {
-		*p++ = ser.read();
+		*p++ = ser->read();
 		checksum = checksum ^ *p;
 	}
 	//TODO: make sure this actually works
-	if (ser.read() == checksum) {
+	if (ser->read() == checksum) {
 		Serial.print(F("Checksum valid"));
 	} else {
 		Serial.print(F("Checksum invalid"));
@@ -265,7 +265,7 @@ template<class T> int readObject(HardwareSerial ser, T& value, char name) {
 	return i;
 }
 
-int FreeBoardModel::receiveData(HardwareSerial ser, char name) {
+int FreeBoardModel::receiveData(HardwareSerial* ser, char name) {
 	if (CONFIG_T == name) {
 		return readObject(ser, config, name);
 	}
