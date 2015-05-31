@@ -340,8 +340,7 @@ void loop() {
 		if (interval % 5 == 0) {
 			//do every 500ms
 			wind.calcWindSpeedAndDir();
-			wind.calcWindData();
-			nmea.printWindNmea();
+
 			//fire any alarms
 			alarm.checkAlarms();
 			model.writeSimple(&Serial);
@@ -350,6 +349,8 @@ void loop() {
 			//Serial.print("freeMemory()=");
 			//Serial.println(freeMemory());
 			//do every 1000ms
+			wind.calcWindData();
+			nmea.printWindNmea();
 			anchor.checkAnchor();
 			alarm.checkWindAlarm();
 			alarm.checkLvlAlarms();

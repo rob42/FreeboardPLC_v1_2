@@ -35,11 +35,11 @@ I found eclipse would not upload for me, so I use the commandline to load arduin
 
 For me, on linux:
 
-FREEBOARD_HOME= ~/gitrep/freeboardPLC
+FREEBOARD_HOME= ~/gitrep/FreeboardPLC_v1_2
 ARDUINO_HOME=/home/robert/dev/arduino-1.0.2/
 
 cd $FREEBOARD_HOME/Release1280
-~/gitrep/freeboardPLC/Release1280$ $ARDUINO_HOME/hardware/tools/avrdude -patmega1280 -carduino -P/dev/ttyUSB0 -b57600 -D -v -v -v -v -Uflash:w:FreeBoardPLC.hex:a -C$ARDUINO_HOME/hardware/tools/avrdude.conf
+~/gitrep/Freeboard_v1_2PLC/Release1280$ $ARDUINO_HOME/hardware/tools/avrdude -patmega1280 -carduino -P/dev/ttyUSB0 -b57600 -D -v -v -v -v -Uflash:w:FreeboardPLC_v1_2.hex:a -C$ARDUINO_HOME/hardware/tools/avrdude.conf
 
 
 
