@@ -60,7 +60,7 @@ int NMEARelay::decode(char c) {
   case 1:
   	// decode chars after '$' and before '*' found
     // add received char to sentence
-    _sentence[n++] = c;
+
     switch (c) {
     case '*':
     	// '*' delimits term and precedes checksum term
