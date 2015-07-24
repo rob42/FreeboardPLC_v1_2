@@ -121,9 +121,9 @@ FreeBoardModel::FreeBoardModel() {
 	config.windFactor = 10000.0;
 	config.windZeroOffset = 0;
 	//ver6
-	config.gpsModel = GPS_EM_406A;
+	config.gpsModel = GPS_GENERIC;
 	config.serialBaud = 38400l;
-	config.serialBaud1 = 38400l;
+	config.serialBaud1 = 4800l; //gps default
 	config.serialBaud2 = 9600l; //seatalk?
 	config.serialBaud3 = 9600l; //16 bytes
 	config.serialBaud4 = 9600l; //16 bytes

@@ -139,8 +139,8 @@ void setup() {
 		Serial.print(F("Start GPS Rx - serial1 at "));
 		Serial.println(model.getSerialBaud1());
 	}
-
-	Serial1.begin(model.getSerialBaud1());
+	//already done in setupGps()
+	//Serial1.begin(model.getSerialBaud1());
 
 	if (model.getSeaTalk()) {
 		if (DEBUG) Serial.println(F("Start seatalk - serial2 at 4800"));

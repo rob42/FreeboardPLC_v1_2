@@ -133,7 +133,7 @@ long Gps::autoBaud() {
 	if(baud>0){
 		Serial.print(F("OK at "));
 		Serial.println(baud);
-		Serial1.begin(baud);
+
 		return baud;
 	}else{
 		Serial.print(F("FAILED"));
@@ -141,7 +141,7 @@ long Gps::autoBaud() {
 
 
 	if (DEBUG) Serial.println(F("   default to 4800.."));
-	Serial1.begin(4800);
+
 	return 4800;
 }
 
@@ -169,6 +169,7 @@ void Gps::setupGps() {
 	long baud = autoBaud();
 	model->setSerialBaud1(baud);
 	model->saveConfig();
+	Serial1.begin(baud);
 	setupGpsImpl();
 	//now flush and restart
 	Serial1.flush();
