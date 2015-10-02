@@ -57,12 +57,13 @@ public:
 	 Set baud rate and various message frequencies.
 	 */
 	void setupGps();
+	long detectRate(int rcvPin);
 private:
 	/*
 	 Reset the GPS to factory defaults
 	 */
 	long autoBaud();
-	long detectRate(int rcvPin);
+
 	bool testMsg();
 	void resetGPS();
 	void setupGpsImpl();

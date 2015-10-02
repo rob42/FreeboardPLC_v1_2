@@ -67,6 +67,7 @@ int inByteSerial2;
 int inByteSerial3;
 int inByteSerial4;
 char input;
+int GPS_OK=2; //2=no GPS, 1 = not ready, 0 = ready
 
 
 //freeboard model
@@ -125,6 +126,12 @@ boolean inputSerial4Complete = false; // whether the string is complete
 
 
 void setup() {
+	// jumper config
+	pinMode(GPS_CFG_IN, INPUT_PULLUP); ////5ma current, reads HIGH
+	pinMode(GPS_CFG_OUT, OUTPUT);
+	digitalWrite(GPS_CFG_OUT, LOW); //set to GND
+	//jumper pins 6 and 7 to run with no GPS
+
 	//model.saveConfig();
 	model.readConfig();
 
@@ -132,15 +139,12 @@ void setup() {
 	Serial.begin(model.getSerialBaud(), SERIAL_8N1);
 	if (DEBUG) Serial.println(F("Initializing.."));
 	
-	//start gps on serial1, autobaud
-	//if (DEBUG) Serial.println(F("Start gps.."));
-	gps.setupGps();
-	if (DEBUG) {
-		Serial.print(F("Start GPS Rx - serial1 at "));
-		Serial.println(model.getSerialBaud1());
+	//start gps on serial1, autobaud, if we have not jumpered pins 6 and 7
+	if(digitalRead(GPS_CFG_IN)==HIGH){
+		if (DEBUG) Serial.println(F("Start gps..waiting for fix"));
+		GPS_OK=1;
 	}
-	//already done in setupGps()
-	//Serial1.begin(model.getSerialBaud1());
+
 
 	if (model.getSeaTalk()) {
 		if (DEBUG) Serial.println(F("Start seatalk - serial2 at 4800"));
@@ -266,7 +270,7 @@ void serialEvent() {
 }
 
 void serialEvent1() {
-	while (Serial1.available()) {
+	while (GPS_OK==0 && Serial1.available()) {
 		inputSerial1Complete = gps.decode(Serial1.read());
 		// read from port 1 (GPS), send to port 0:
 		if (inputSerial1Complete) {
@@ -355,7 +359,15 @@ void loop() {
 			alarm.checkWindAlarm();
 			alarm.checkLvlAlarms();
 			nmea.printTrueHeading();
-			
+			//is the GPS alive yet?
+			if(GPS_OK==1 && gps.detectRate(GPS_RX_PIN)>0){
+				GPS_OK=0;
+				gps.setupGps();
+				if (DEBUG) {
+					Serial.print(F("Start GPS Rx - serial1 at "));
+					Serial.println(model.getSerialBaud1());
+				}
+			}
 		}
 
 		execute = false;

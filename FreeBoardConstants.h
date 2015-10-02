@@ -20,9 +20,13 @@
 #define FREEBOARDCONSTANTS_H_
 
 //debug
-#define DEBUG true
+#define DEBUG false
 //enable mux onto Serial.print
 #define MUX true
+
+//define some config pins
+#define GPS_CFG_OUT 7
+#define GPS_CFG_IN 6
 
 //uncomment to support different GPS
 #define GPS_GENERIC 0

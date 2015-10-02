@@ -236,16 +236,16 @@ void Wind::calcWindSpeedAndDir() {
 //micros resets every 50 min,
 // avoid 0, bad data, rollover and too fast (bounce? <25ms)
 	if (wsMicrosLast >= wsMicros || wsMicros - wsMicrosLast < MICROS_DEBOUNCE) {
-		Serial.println("DEBUG:wsMicrosLast >= wsMicros || wsMicros - wsMicrosLast < MICROS_DEBOUNCE");
+		//Serial.println("DEBUG:wsMicrosLast >= wsMicros || wsMicros - wsMicrosLast < MICROS_DEBOUNCE");
 		return;
 	}
 	if (wdMicrosLast >= wdMicros || wdMicros - wdMicrosLast < MICROS_DEBOUNCE) {
-		Serial.println("DEBUG:wdMicrosLast >= wdMicros || wdMicros - wdMicrosLast < MICROS_DEBOUNCE");
+		//Serial.println("DEBUG:wdMicrosLast >= wdMicros || wdMicros - wdMicrosLast < MICROS_DEBOUNCE");
 		return;
 	}
 	//wd after ws, both above 0
 	if(wdMicros==0 || wdMicrosLast==0 || wsMicros==0 || wsMicrosLast==0 || wdMicrosLast<=wsMicrosLast || wdMicros < wsMicros){
-		Serial.println("DEBUG:wdMicros==0 || wdMicrosLast==0 || wsMicros==0 || wsMicrosLast==0 || wdMicrosLast<=wsMicrosLast || wdMicros < wsMicros");
+		//Serial.println("DEBUG:wdMicros==0 || wdMicrosLast==0 || wsMicros==0 || wsMicrosLast==0 || wdMicrosLast<=wsMicrosLast || wdMicros < wsMicros");
 		return;
 	}
 //speed in micros, both speed and dir should agree

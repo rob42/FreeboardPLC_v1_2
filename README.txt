@@ -42,5 +42,9 @@ cd $FREEBOARD_HOME/Release1280
 ~/gitrep/Freeboard_v1_2PLC/Release1280$ $ARDUINO_HOME/hardware/tools/avrdude -patmega1280 -carduino -P/dev/ttyUSB0 -b57600 -D -v -v -v -v -Uflash:w:FreeboardPLC_v1_2.hex:a -C$ARDUINO_HOME/hardware/tools/avrdude.conf
 
 
+#Arduino IDE 1.6.5 to mega2560
+/home/robert/dev/arduino-1.6.5/hardware/tools/avr/bin/avrdude -C/home/robert/dev/arduino-1.6.5/hardware/tools/avr/etc/avrdude.conf -v -patmega2560 -cwiring -P/dev/ttyACM0 -b115200 -D -Uflash:w:FreeboardPLC_v1_2.hex:i
+
+
 
 

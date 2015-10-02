@@ -69,11 +69,11 @@ long Gps::detectRate(int rcvPin)  // function to return valid received baud rate
                           // Note that the serial monitor has no 600 baud option and 300 baud
                           // doesn't seem to work with version 22 hardware serial library
   {
-  long baud, rate = 10000, x=2000;
+  long  rate = 10000, x=2000;
   pinMode(rcvPin, INPUT);      // make sure serial in is a input pin
   digitalWrite (rcvPin, HIGH); // pull up enabled just for noise protection
 
-  for (int i = 0; i < 1024; i++) {
+  for (int i = 0; i < 5; i++) {
       x = pulseIn(rcvPin,LOW, 125000);   // measure the next zero bit width
       if(x<1)continue;
       rate = x < rate ? x : rate;
@@ -82,44 +82,7 @@ long Gps::detectRate(int rcvPin)  // function to return valid received baud rate
 	  Serial.print(F("  detected pulse rate = "));
 	  Serial.println(rate);
   }
-/*
- 	 Time	Baud Rate
-	3333µs (3.3ms)300
-	833µs 	1200
-	416µs 	2400
-	208µs 	4800
-	104µs 	9600
-	69µs 	14400
-	52µs 	19200
-	34µs 	28800
-	26µs 	38400
-	17.3µs 	57600
-	8µs 	115200
-	Megas min is about 10uS? so there may be some inaccuracy
- */
-  if (rate < 12)
-      baud = 115200;
-      else if (rate < 20)
-      baud = 57600;
-      else if (rate < 30)
-      baud = 38400;
-      else if (rate < 40)
-      baud = 28800;
-      else if (rate < 60)
-      baud = 19200;
-      else if (rate < 80)
-      baud = 14400;
-      else if (rate < 150)
-      baud = 9600;
-      else if (rate < 300)
-      baud = 4800;
-      else if (rate < 600)
-      baud = 2400;
-      else if (rate < 1200)
-      baud = 1200;
-      else
-      baud = 0;
-   return baud;
+  return rate;
   }
 
 
@@ -128,7 +91,46 @@ long Gps::autoBaud() {
 	//should only output simple NMEA [$A-Z0-9*\r\c]
 	//start with saved default
 	Serial.print(F("   try autobaud .. "));
-	long baud = detectRate(GPS_RX_PIN);
+	long rate = detectRate(GPS_RX_PIN)+detectRate(GPS_RX_PIN)+detectRate(GPS_RX_PIN);
+	rate = rate/3l;
+	long baud = 0;
+	/*
+	 	 Time	Baud Rate
+		3333µs (3.3ms)300
+		833µs 	1200
+		416µs 	2400
+		208µs 	4800
+		104µs 	9600
+		69µs 	14400
+		52µs 	19200
+		34µs 	28800
+		26µs 	38400
+		17.3µs 	57600
+		8µs 	115200
+		Megas min is about 10uS? so there may be some inaccuracy
+	 */
+	  if (rate < 12)
+	      baud = 115200;
+	      else if (rate < 20)
+	      baud = 57600;
+	      else if (rate < 30)
+	      baud = 38400;
+	      else if (rate < 40)
+	      baud = 28800;
+	      else if (rate < 60)
+	      baud = 19200;
+	      else if (rate < 80)
+	      baud = 14400;
+	      else if (rate < 150)
+	      baud = 9600;
+	      else if (rate < 300)
+	      baud = 4800;
+	      else if (rate < 600)
+	      baud = 2400;
+	      else if (rate < 1200)
+	      baud = 1200;
+	      else
+	      baud = 0;
 
 	if(baud>0){
 		Serial.print(F("OK at "));
@@ -152,7 +154,6 @@ long Gps::autoBaud() {
  Set baud rate and various message frequencies.
  */
 void Gps::setupGps() {
-
 	/*
 	 Value Description
 	 0 GGA Fix information

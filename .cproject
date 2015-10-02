@@ -1,63 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
-		<cconfiguration id="it.baeyens.arduino.core.toolChain.release.1959804063">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="it.baeyens.arduino.core.toolChain.release.1959804063" moduleId="org.eclipse.cdt.core.settings" name="Release1280">
-				<externalSettings/>
-				<extensions>
-					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
-					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-				</extensions>
-			</storageModule>
-			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildProperties="" description="" id="it.baeyens.arduino.core.toolChain.release.1959804063" name="Release1280" parent="org.eclipse.cdt.build.core.emptycfg">
-					<folderInfo id="it.baeyens.arduino.core.toolChain.release.1959804063.1390141753" name="/" resourcePath="">
-						<toolChain id="it.baeyens.arduino.core.toolChain.release.1121274509" name="Arduino Toolchain" superClass="it.baeyens.arduino.core.toolChain.release">
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="it.baeyens.arduino.targetplatform.822269741" name="Arduino Target" osList="all" superClass="it.baeyens.arduino.targetplatform"/>
-							<builder buildPath="${workspace_loc:/FreeboardPLC_v1_2}/Release" id="it.baeyens.arduino.sketch.builder.93145206" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Arduino sketch builder" superClass="it.baeyens.arduino.sketch.builder"/>
-							<tool id="it.baeyens.arduino.tool.sketch.compiler.cpp.2006367824" name="Arduino C++ Compiler" superClass="it.baeyens.arduino.tool.sketch.compiler.cpp">
-								<option id="it.baeyens.arduino.compiler.cpp.sketch.option.incpath.1468863729" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.cpp.sketch.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeboardPLC_v1_2/arduino/core}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeboardPLC_v1_2/arduino/variant}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/AltSoftSerial}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/AverageList}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/EEPROM}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/FlexiTimer2}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/JsonStream}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/Kangaroo}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/MemoryFree}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/MultiSerial}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/NMEA}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/PID_v1}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/PString}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/SPI}&quot;"/>
-								</option>
-								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.852116380" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
-							</tool>
-							<tool id="it.baeyens.arduino.tool.compiler.c.1176598437" name="Arduino C Compiler" superClass="it.baeyens.arduino.tool.compiler.c">
-								<option id="it.baeyens.arduino.compiler.c.sketch.option.incpath.436509632" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.c.sketch.option.incpath" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeboardPLC_v1_2/arduino/core}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeboardPLC_v1_2/arduino/variant}&quot;"/>
-								</option>
-								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.2083503979" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
-							</tool>
-							<tool id="it.baeyens.arduino.tool.sketch.compiler.s.1106156427" name="Arduino Assembler" superClass="it.baeyens.arduino.tool.sketch.compiler.s"/>
-							<tool id="it.baeyens.arduino.tool.ar.1098531015" name="Arduino archiver" superClass="it.baeyens.arduino.tool.ar"/>
-							<tool id="it.baeyens.arduino.tool.combine.1847239981" name="Arduino combiner" superClass="it.baeyens.arduino.tool.combine"/>
-							<tool id="it.baeyens.arduino.tool.objcopy.eep.1836263163" name="Arduino tool Create eeprom" superClass="it.baeyens.arduino.tool.objcopy.eep"/>
-							<tool id="it.baeyens.arduino.tool.objcopy.flash.1770249078" name="Arduino tool Create hex" superClass="it.baeyens.arduino.tool.objcopy.flash"/>
-							<tool id="it.baeyens.arduino.tool.size.335971984" name="Arduino tool Print Size" superClass="it.baeyens.arduino.tool.size"/>
-						</toolChain>
-					</folderInfo>
-					<sourceEntries>
-						<entry excluding="Libraries/*/?xamples|Libraries/*/?xtras" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
-					</sourceEntries>
-				</configuration>
-			</storageModule>
-			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-		</cconfiguration>
 		<cconfiguration id="it.baeyens.arduino.core.toolChain.release.1959804063.613669581">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="it.baeyens.arduino.core.toolChain.release.1959804063.613669581" moduleId="org.eclipse.cdt.core.settings" name="Release2560">
 				<externalSettings/>
@@ -73,7 +16,7 @@
 					<folderInfo id="it.baeyens.arduino.core.toolChain.release.1959804063.613669581." name="/" resourcePath="">
 						<toolChain id="it.baeyens.arduino.core.toolChain.release.1991359549" name="Arduino Toolchain" superClass="it.baeyens.arduino.core.toolChain.release">
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="it.baeyens.arduino.targetplatform.711669689" name="Arduino Target" osList="all" superClass="it.baeyens.arduino.targetplatform"/>
-							<builder buildPath="${workspace_loc:/FreeboardPLC_v1_2}/Release" id="it.baeyens.arduino.sketch.builder.2114693375" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Arduino sketch builder" superClass="it.baeyens.arduino.sketch.builder"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/FreeboardPLC_v1_2}/Release" cleanBuildTarget="clean" enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="it.baeyens.arduino.sketch.builder.2114693375" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Arduino sketch builder" parallelBuildOn="false" superClass="it.baeyens.arduino.sketch.builder"/>
 							<tool id="it.baeyens.arduino.tool.sketch.compiler.cpp.1221319697" name="Arduino C++ Compiler" superClass="it.baeyens.arduino.tool.sketch.compiler.cpp">
 								<option id="it.baeyens.arduino.compiler.cpp.sketch.option.incpath.798998337" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.cpp.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeboardPLC_v1_2/arduino/core}&quot;"/>
@@ -115,8 +58,8 @@
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
-		<cconfiguration id="it.baeyens.arduino.core.toolChain.release.1959804063.746720531">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="it.baeyens.arduino.core.toolChain.release.1959804063.746720531" moduleId="org.eclipse.cdt.core.settings" name="FreeboardTest">
+		<cconfiguration id="it.baeyens.arduino.core.toolChain.release.1959804063.613669581.1318509475">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="it.baeyens.arduino.core.toolChain.release.1959804063.613669581.1318509475" moduleId="org.eclipse.cdt.core.settings" name="Release1280">
 				<externalSettings/>
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
@@ -126,13 +69,13 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildProperties="" description="" id="it.baeyens.arduino.core.toolChain.release.1959804063.746720531" name="FreeboardTest" parent="org.eclipse.cdt.build.core.emptycfg">
-					<folderInfo id="it.baeyens.arduino.core.toolChain.release.1959804063.746720531." name="/" resourcePath="">
-						<toolChain id="it.baeyens.arduino.core.toolChain.release.1460205524" name="Arduino Toolchain" superClass="it.baeyens.arduino.core.toolChain.release">
-							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="it.baeyens.arduino.targetplatform.368108614" name="Arduino Target" osList="all" superClass="it.baeyens.arduino.targetplatform"/>
-							<builder buildPath="${workspace_loc:/FreeboardPLC_v1_2}/Release" id="it.baeyens.arduino.sketch.builder.1891450497" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Arduino sketch builder" superClass="it.baeyens.arduino.sketch.builder"/>
-							<tool id="it.baeyens.arduino.tool.sketch.compiler.cpp.886146566" name="Arduino C++ Compiler" superClass="it.baeyens.arduino.tool.sketch.compiler.cpp">
-								<option id="it.baeyens.arduino.compiler.cpp.sketch.option.incpath.1933615627" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.cpp.sketch.option.incpath" valueType="includePath">
+				<configuration artifactName="${ProjName}" buildProperties="" description="" id="it.baeyens.arduino.core.toolChain.release.1959804063.613669581.1318509475" name="Release1280" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="it.baeyens.arduino.core.toolChain.release.1959804063.613669581.1318509475." name="/" resourcePath="">
+						<toolChain id="it.baeyens.arduino.core.toolChain.release.1475155883" name="Arduino Toolchain" superClass="it.baeyens.arduino.core.toolChain.release">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="it.baeyens.arduino.targetplatform.58778882" name="Arduino Target" osList="all" superClass="it.baeyens.arduino.targetplatform"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/FreeboardPLC_v1_2}/Release" cleanBuildTarget="clean" enableAutoBuild="false" enableCleanBuild="true" enabledIncrementalBuild="true" id="it.baeyens.arduino.sketch.builder.105811166" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Arduino sketch builder" parallelBuildOn="false" superClass="it.baeyens.arduino.sketch.builder"/>
+							<tool id="it.baeyens.arduino.tool.sketch.compiler.cpp.1608654049" name="Arduino C++ Compiler" superClass="it.baeyens.arduino.tool.sketch.compiler.cpp">
+								<option id="it.baeyens.arduino.compiler.cpp.sketch.option.incpath.1891931099" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.cpp.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeboardPLC_v1_2/arduino/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeboardPLC_v1_2/arduino/variant}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/AltSoftSerial}&quot;"/>
@@ -148,21 +91,21 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/PString}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/libraries/SPI}&quot;"/>
 								</option>
-								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.765804453" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
+								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.1485339444" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
 							</tool>
-							<tool id="it.baeyens.arduino.tool.compiler.c.1919543370" name="Arduino C Compiler" superClass="it.baeyens.arduino.tool.compiler.c">
-								<option id="it.baeyens.arduino.compiler.c.sketch.option.incpath.437207588" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.c.sketch.option.incpath" valueType="includePath">
+							<tool id="it.baeyens.arduino.tool.compiler.c.172767619" name="Arduino C Compiler" superClass="it.baeyens.arduino.tool.compiler.c">
+								<option id="it.baeyens.arduino.compiler.c.sketch.option.incpath.747877022" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.c.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeboardPLC_v1_2/arduino/core}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FreeboardPLC_v1_2/arduino/variant}&quot;"/>
 								</option>
-								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.1398085635" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
+								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.870657714" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
 							</tool>
-							<tool id="it.baeyens.arduino.tool.sketch.compiler.s.1701614669" name="Arduino Assembler" superClass="it.baeyens.arduino.tool.sketch.compiler.s"/>
-							<tool id="it.baeyens.arduino.tool.ar.1012479664" name="Arduino archiver" superClass="it.baeyens.arduino.tool.ar"/>
-							<tool id="it.baeyens.arduino.tool.combine.1165143761" name="Arduino combiner" superClass="it.baeyens.arduino.tool.combine"/>
-							<tool id="it.baeyens.arduino.tool.objcopy.eep.850276002" name="Arduino tool Create eeprom" superClass="it.baeyens.arduino.tool.objcopy.eep"/>
-							<tool id="it.baeyens.arduino.tool.objcopy.flash.1245353220" name="Arduino tool Create hex" superClass="it.baeyens.arduino.tool.objcopy.flash"/>
-							<tool id="it.baeyens.arduino.tool.size.1833931247" name="Arduino tool Print Size" superClass="it.baeyens.arduino.tool.size"/>
+							<tool id="it.baeyens.arduino.tool.sketch.compiler.s.466201892" name="Arduino Assembler" superClass="it.baeyens.arduino.tool.sketch.compiler.s"/>
+							<tool id="it.baeyens.arduino.tool.ar.496889648" name="Arduino archiver" superClass="it.baeyens.arduino.tool.ar"/>
+							<tool id="it.baeyens.arduino.tool.combine.602234982" name="Arduino combiner" superClass="it.baeyens.arduino.tool.combine"/>
+							<tool id="it.baeyens.arduino.tool.objcopy.eep.1196562311" name="Arduino tool Create eeprom" superClass="it.baeyens.arduino.tool.objcopy.eep"/>
+							<tool id="it.baeyens.arduino.tool.objcopy.flash.1325488372" name="Arduino tool Create hex" superClass="it.baeyens.arduino.tool.objcopy.flash"/>
+							<tool id="it.baeyens.arduino.tool.size.1150463198" name="Arduino tool Print Size" superClass="it.baeyens.arduino.tool.size"/>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
@@ -184,6 +127,11 @@
 		<configuration configurationName="Release">
 			<resource resourceType="PROJECT" workspacePath="/FreeboardPLC_v1_2"/>
 		</configuration>
+		<configuration configurationName="Multiple configurations">
+			<resource resourceType="PROJECT" workspacePath="/FreeboardPLC_v1_2"/>
+		</configuration>
+		<configuration configurationName="Release1280"/>
+		<configuration configurationName="Release2560"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
