@@ -127,6 +127,7 @@ FreeBoardModel::FreeBoardModel() {
 	config.serialBaud2 = 9600l; //seatalk?
 	config.serialBaud3 = 9600l; //16 bytes
 	config.serialBaud4 = 9600l; //16 bytes
+	config.serialBaud5 = 4800l; //16 bytes
 	config.autopilotBaud = 9600l; //16 bytes
 	config.seaTalk = false;
 	//}config;
