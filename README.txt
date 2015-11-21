@@ -1,13 +1,9 @@
 
 NEW: Freeboard interface pcb arrives. See https://www.42.co.nz/freeboard/news/custompcboardprototypearrives.html
 
-NOTES:
-
-Current build is done on a Kubuntu 12.10 linux laptop. It should build on any OS with a reasonably current version of eclipse IDE.
-
 If you just want the binary hex files to upload to the arduino mega they are in the Release[Mega_model] directory.
 
-**You can upload these with the installer https://github.com/rob42/freeboard-installer if you dont want to compile code.
+**You can upload these with the installer https://github.com/rob42/freeboard-installer if you dont want to compile code. Windows causes problems with virus/firewall or something, best to use http://russemotto.com/xloader/
 
 You can configure the GPS type, and serial baud rates as follows:
 
@@ -15,21 +11,63 @@ See CONFIG.txt to configure serial baud rates etc if the defaults dont suit.
 
 Develop and Compile 
 
-To  open and compile the project:
+freeboardPLCv1_2 project rebuilt using Baeyens v2.2 for MUCH easier building - many thanks Jantje!!
 
-Get Eclipse from http://eclipse.org/ and install it anywhere, but usually in C:\eclipse for windows. DONT pick a directory with spaces, and dont use any in projects - it will cause you grief :-)
-In eclipse install the AVR (http://www.baeyens.it/eclipse/) and eGit plugins - google will help. The 'other' avr plugin (http://avr-eclipse.sourceforge.net) will give all sorts of problems as the project expects the baeyens version.
+To install:
+===========
 
-Follow the instructions from github to install git on your PC, and clone this project and your chosen Arduino_ATmegaxxxx project to you local repository.
+* Download the Arduino IDE Arduino 1.5.7 ( http://arduino.cc/en/Main/Software#toc3 )
+* Download http://www.baeyens.it/eclipse/download/product/ - (you will need the current one for your environment)
+* Unpack and install the Arduino IDE
+* Unpack and install the Eclipse IDE for baeyens
+* Configure eclipse to use the Arduino IDE (Windows>Preferences>Arduino)
 
-Start eclipse and File>Import>From Git and follow the wizard. You should end up with two projects in your workspace.
-On the  Arduino_ATmegaxxxx project Right-click and Clean, then Build Project.
+(git clone this project, and make a local repository on your PC.)
 
-It should complete without errors, if not look in the Console tab for the full build log. There are some hints in COmpileError.txt.
-You can email me if needed. 
+In Eclipse use the git integration to extract a new project:
+* File>Import>Project from Git>etc
+* Open, clean and build your new project
 
-Do the same for the FreeboardPLC project. 
-There are two options: right-click project>Build configurations>Set Active>(choose your board)
+Notes:
+======
+
+This is  targetted at the Freeboard Interface board. It should be the same as the FreeboardPLC project, but there are some code changes and lib locations to suit the new format. 
+
+The update to 1.5.7 Arduino codebase required a change to the Seatalk 9 bit extensions. These are untested, so if you have seatalk errors let me know.
+
+Ive commited my .settings and .cproject files, so your project should be fully set up. But the .settings may cause your project to look for my dir structure, which will probably cause problems. In this case you will need to check the following:
+
+* In Project>Properties>Arduino set the boards.txt file, and select the Mega processor and the type you have (1280/2560)
+* Copy the two HardwareSerial.* files from the arduinoMods dir over the top of the same ones you will find in your "${workspace_loc:/arduino/core directory.
+* In Project>Properties>C++ Comiler>Settings>Include folders:
+```
+  "${workspace_loc:/FreeboardMega/arduino/core}"
+  "${workspace_loc:/FreeboardMega/arduino/variant}"
+  "${workspace_loc:/${ProjName}/lib/AltSoftSerial}"
+  "${workspace_loc:/${ProjName}/lib/AverageList}"
+  "${workspace_loc:/${ProjName}/lib/EEPROM}"
+  "${workspace_loc:/${ProjName}/lib/FlexiTimer2}"
+  "${workspace_loc:/${ProjName}/lib/JsonStream}"
+  "${workspace_loc:/${ProjName}/lib/Kangaroo}"
+  "${workspace_loc:/${ProjName}/lib/MemoryFree}"
+  "${workspace_loc:/${ProjName}/lib/MultiSerial}"
+  "${workspace_loc:/${ProjName}/lib/NMEA}"
+  "${workspace_loc:/${ProjName}/lib/PID_v1}"
+  "${workspace_loc:/${ProjName}/lib/PString}"
+  "${workspace_loc:/${ProjName}/lib/SPI}"
+
+```
+
+***check they really are there!
+
+* In Project>Properties>C Compiler>Settings>Include folders:
+```
+  "${workspace_loc:/freeboardMega/arduino/core}"
+  "${workspace_loc:/freeboardMega/arduino/variant}"
+  
+
+Current build is done on a Kubuntu 14.10 linux laptop. It should build on any OS with a reasonably current version of eclipse IDE.
+
 
 I found eclipse would not upload for me, so I use the commandline to load arduino on USB0. Install the arduino environment, and upload any simple example sketch. In the console window you will see the commandline used. Copy and adjust.
 
