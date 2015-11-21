@@ -76,7 +76,7 @@ void NmeaSerial::printWindNmea() {
 	if (cs < 0x10) str.print('0');
 	str.print(cs, HEX); // Assemble the final message and send it out the serial port
 	Serial.println(windSentence);
-	//printNmea(windSentence);
+	printNmea(windSentence);
 
 }
 
