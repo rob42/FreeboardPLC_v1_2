@@ -1,4 +1,12 @@
 /Release/
-/Release1280/
+/Release1280/*.o
+/Release1280/*.d
+/Release1280/*.mk
+/Release1280/*.eep
+/Release1280/*.ar
+/Release1280/makefile
+/Release1280/Freeboardtest/*
+/Release1280/Release/*
+/Release1280/*/*
 /Release2560/
 /FreeboardTest/
