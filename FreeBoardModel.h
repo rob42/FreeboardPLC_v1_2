@@ -37,7 +37,7 @@
 
 #define AUTOPILOT_WIND 'W'
 #define AUTOPILOT_COMPASS 'C'
-#define EEPROM_VER 13
+#define EEPROM_VER 14
 #define EEPROM_DATA 4
 class FreeBoardModel {
 public:

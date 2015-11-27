@@ -35,7 +35,7 @@
 
 class NmeaSerial: AltSoftSerial {
 public:
-	NmeaSerial(FreeBoardModel* model):model(model){};
+	NmeaSerial(FreeBoardModel* model):model(model),cs(0x00){};
 	virtual ~NmeaSerial();
 	void printNmea(char* sentence);
 	void printWindNmea();

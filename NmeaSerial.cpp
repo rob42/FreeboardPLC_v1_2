@@ -37,7 +37,7 @@ void NmeaSerial::printNmea(char* sentence) {
 	//sentence can be up to 80 chars
 	//make it as perfect as possible, as the Raymarine C70 is very touchy
 	// noInterrupts();
-	println(sentence);
+	AltSoftSerial::println(sentence);
 	// interrupts();
 	//if(DEBUG)Serial.println(sentence);
 }
