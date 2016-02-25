@@ -13,10 +13,13 @@ You should see a few boot messages, then recurring $IIMVW... NMEA messages, and 
 
 The default configuration is:
 	GPS Model= GPS_EM_406A
-	config.serial0 Baud=38400
-	serial1 Baud=38400
-	serial2 Baud=9600
-	serial3 Baud=9600
+	serial0 Baud=38400 - USB connector
+	serial1 Baud=4800 - on board GPS connection
+	serial2 Baud=9600 - NMEA1 connector
+	serial3 Baud=9600 - NMEA2 connector
+	serial4 Baud=9600 - NMEA3 connector
+	serial5 Baud=4800 - NMEA Talker connector
+	
 	seaTalk on serial2 = OFF;
 	
 You can now send commands to the Mega to alter the configuration:
@@ -31,14 +34,17 @@ Options are #GPS=0 for generic GPS
 Options are #GPS=1 for EM406A GPS  - also recommend switching to 38400bps
 Options are #GPS=2 for MTEK_3329 GPS  - also recommend switching to 38400bps
 
-Changing baud rates:
+Changing baud rates (currently only possibe for serial0-3):
 
 Possible baud rates are 4800, 9600, 19200, 38400, 57600
 eg for baud rate 38400 #SB0=38400
-Main serial0 (shared with USB) #SB0 - (WARNING: if you change this and reboot, you will need to reconnect at the new speed.)
-Serial1 - usually GPS #SB1
-Serial2 - optionally used for Seatalk #SB2
-Serial3 #SB3
+
+Serial0 (the USB) #SB0 - (WARNING: if you change this and reboot, you will need to reconnect at the new speed.)
+Serial1 - internal GPS connector #SB1
+Serial2 - NMEA1 - optionally used for Seatalk #SB2
+Serial3 - NMEA2 - #SB3
+Serial4 - NMEA3 = 9600 - cannot be changed without recompile
+Serial4 - NMEA Talker = 4800 - cannot be changed without recompile
 
 Use Serial2 for SEATALK, also sets baud at 4800: #STK=1
 Dont use Serial2 for SEATALK:  #STK=0  (set baud with #SB2 above)
@@ -52,11 +58,13 @@ Set an existing generic gps on serial1 at 4800bps
 
 #GPS=0,#SB1=4800, hit [ENTER]
 
-To make serial2 listen for Seatalk at 4800bps
+To disable serial2(NMEA1) and enable Seatalk at 4800bps
 
 #STK=1, Hit [Enter]
+To undo:
+#STK=0,#SB2=9600, Hit [Enter]
 
-To listen for AIS on serial 3 at 38400bps (default for AIS)
+To listen for AIS on serial 3 (NMEA2) at 38400bps (default for AIS)
 
 #SB3=38400, hit [Enter]
 
