@@ -15,6 +15,8 @@
 
  *  You should have received a copy of the GNU General Public License
  *  along with FreeBoard.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Updated 20 October 2016 by aayaffe@github (fixed 9 bit read)
  */
 /* Seatalk routines*/
 
@@ -74,7 +76,7 @@ public:
 	void windAlarmOff();
 	void radarAlarmOff() ;
 	void cancelMOB() ;
-	void processSeaTalkByte(byte inByte);
+	void processSeaTalkByte(uint16_t inByte);
 private:
 	void windCommand(byte * seatalkStream);
 	void radarCommand(byte * seatalkStream);

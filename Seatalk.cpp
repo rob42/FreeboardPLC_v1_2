@@ -15,6 +15,8 @@
 
  *  You should have received a copy of the GNU General Public License
  *  along with FreeBoard.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  Updated 20 October 2016 by aayaffe@github (fixed 9 bit read)
  */
 /* Seatalk routines*/
 
@@ -90,7 +92,7 @@ void Seatalk::cancelMOB() {
 	serial->write9(0x00, false);
 	serial->write9(0x01, false);
 }
-void Seatalk::processSeaTalkByte(byte inByte) {
+void Seatalk::processSeaTalkByte(uint16_t inByte) {
 	if (inByte > 256) {
 		//process last datagram....would be nice to do this earlier but how to know its ended?
 		//second byte (4 least significant bits have additional bytes. Length is 3 + additional bytes
@@ -138,15 +140,15 @@ void Seatalk::radarCommand(byte * seatalkStream) {
 	}
 }
 void Seatalk::processSeatalk(byte * seatalkStream) {
-	/* if(DEBUG){
-	 Serial.print("Processing ");
-	 int x =0;
-	 while(seatalkStream[x]!=0x00){
-	 Serial.print(seatalkStream[x],HEX);
-	 x++;
+	 if(DEBUG){
+		 Serial.print("Processing ");
+		 int x =0;
+		 while(seatalkStream[x]!=0x00){
+		 Serial.print(seatalkStream[x],HEX);
+		 x++;
 	 }
 	 Serial.print(": ");
-	 }*/
+	 }
 	//what alarm?
 	switch (seatalkStream[0]) {
 	//MOB, Thomas Knauf says 67 07... but my C70 gives 67 77 ... listen for both
@@ -180,7 +182,7 @@ void Seatalk::processSeatalk(byte * seatalkStream) {
 		windCommand(seatalkStream);
 		break;
 	default:
-		//if(DEBUG)Serial.println("  Command ignored");
+		if(DEBUG)Serial.println("  Command ignored");
 		break;
 	}
 }
